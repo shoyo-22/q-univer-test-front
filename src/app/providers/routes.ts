@@ -6,12 +6,12 @@ const router = createRouter({
     {
       path: '/',
       name: 'root-layout',
-      component: () => import('@/layouts/GuestLayout.vue'),
+      component: () => import('@/app/layouts/GuestLayout.vue'),
       children: [
         {
           path: '',
           name: 'root-page',
-          component: () => import('@/pages/RootPage.vue'),
+          component: () => import('@/pages/root-page'),
         },
       ],
     },
