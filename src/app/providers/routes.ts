@@ -31,6 +31,11 @@ const router = createRouter({
           name: 'login-page',
           component: () => import('@/pages/login'),
         },
+        {
+          path: 'register',
+          name: 'register-page',
+          component: () => import('@/pages/register'),
+        },
       ],
     },
   ],
