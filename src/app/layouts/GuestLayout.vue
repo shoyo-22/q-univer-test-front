@@ -4,10 +4,15 @@
       <h1 class="text-xl font-bold transition-all duration-300 lg:text-2xl">Q University</h1>
       <div class="max-sm:hidden">
         <button
+          v-if="!userStore.isLoggedIn"
+          @click="router.push({ path: '/auth/login' })"
           class="flex cursor-pointer items-center gap-1.5 rounded-lg border border-gray-300 px-3 py-1.5 text-xs font-medium text-gray-600 shadow-xs transition-all duration-300 hover:border-blue-400 hover:bg-blue-50 hover:text-blue-800 sm:px-4 sm:py-2 sm:text-sm"
         >
           <span class="">Войти</span>
           <ArrowRightEndOnRectangleIcon class="size-4 sm:size-5" />
+        </button>
+        <button v-else>
+          {{ userStore.user?.username }}
         </button>
       </div>
       <button
@@ -55,6 +60,11 @@ import { RouterView } from 'vue-router';
 import { BaseContainer } from '@/shared/ui';
 import { ref } from 'vue';
 import { ArrowRightEndOnRectangleIcon } from '@heroicons/vue/24/solid';
+import { useRouter } from 'vue-router';
+import { useUserStore } from '@/entities/user/model/userStore';
+
+const router = useRouter();
+const userStore = useUserStore();
 
 const isActive = ref<boolean>(false);
 
