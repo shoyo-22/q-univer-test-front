@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import { useUserStore } from '@/entities/user/model/userStore';
 import { useRouter } from 'vue-router';
 import { BaseLoader } from '@/shared/ui';
+import { RouterLink } from 'vue-router';
 
 const userStore = useUserStore();
 const username = ref('');
@@ -52,6 +53,11 @@ const handleLogin = async () => {
         <span>Зарегистрироваться</span>
         <BaseLoader size="sm" v-if="userStore.isLoading" />
       </button>
+
+      <RouterLink to="/auth/login" class="text-blue-400 hover:text-blue-600">
+        Войти в систему
+      </RouterLink>
+
       <p v-if="error" class="text-center text-red-500">{{ error }}</p>
     </form>
   </div>
