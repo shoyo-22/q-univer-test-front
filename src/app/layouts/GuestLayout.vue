@@ -1,7 +1,9 @@
 <template>
   <header class="border-b border-gray-300 py-3 sm:py-4" v-if="!userStore.isLoading">
     <BaseContainer class="flex items-center justify-between">
-      <h1 class="text-xl font-bold transition-all duration-300 lg:text-2xl">Q University</h1>
+      <h1 class="text-xl font-bold transition-all duration-300 lg:text-2xl">
+        <RouterLink to="/"> Q University </RouterLink>
+      </h1>
       <div class="">
         <button
           v-if="!isLoggedIn"
@@ -17,6 +19,7 @@
           class="flex cursor-pointer items-center gap-1.5 rounded-lg border border-gray-300 px-3 py-1.5 text-xs font-medium text-gray-600 shadow-xs transition-all duration-300 hover:border-blue-400 hover:bg-blue-50 hover:text-blue-800 sm:px-4 sm:py-2 sm:text-sm"
         >
           <span>Личный кабинет</span>
+          <UserIcon class="size-4 sm:size-5" />
         </button>
       </div>
       <button
@@ -64,7 +67,7 @@
 import { RouterView } from 'vue-router';
 import { BaseContainer } from '@/shared/ui';
 import { onMounted, ref, watch } from 'vue';
-import { ArrowRightEndOnRectangleIcon } from '@heroicons/vue/24/solid';
+import { ArrowRightEndOnRectangleIcon, UserIcon } from '@heroicons/vue/24/solid';
 import { useRouter } from 'vue-router';
 import { useUserStore } from '@/entities/user/model/userStore';
 import { BaseLoader } from '@/shared/ui';

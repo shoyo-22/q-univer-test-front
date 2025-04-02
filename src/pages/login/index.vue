@@ -48,7 +48,7 @@ const handleLogin = async () => {
       </div>
       <button
         type="submit"
-        class="w-full space-x-2 rounded bg-blue-500 p-2 text-white hover:bg-blue-600"
+        class="flex w-full items-center justify-center space-x-2 rounded bg-blue-500 p-2 text-white hover:bg-blue-600"
       >
         <span>Войти</span>
         <BaseLoader size="sm" v-if="userStore.isLoading" />

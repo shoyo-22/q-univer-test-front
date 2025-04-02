@@ -9,7 +9,11 @@
         @click="router.push({ name: 'course-self-page', params: { id: course.id } })"
         class="rounded-2xl border border-gray-300 shadow-md transition-all duration-300 hover:cursor-pointer hover:shadow-lg"
       >
-        <img :src="course.thumbnailUrl" :alt="course.title" class="object-fit rounded-2xl" />
+        <img
+          :src="course.thumbnailUrl"
+          :alt="course.title"
+          class="object-fit h-60 w-full rounded-2xl"
+        />
         <div class="space-y-2 p-3">
           <h3 class="text-base font-semibold">{{ course.title }}</h3>
           <p class="line-clamp-3 text-sm">{{ course.imageUrl }}</p>
