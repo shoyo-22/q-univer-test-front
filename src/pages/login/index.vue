@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { useUserStore } from '@/entities/user/model/userStore';
 import { useRouter } from 'vue-router';
+import { BaseLoader } from '@/shared/ui';
 
 const userStore = useUserStore();
 const username = ref('');
@@ -44,8 +45,12 @@ const handleLogin = async () => {
           class="w-full rounded border p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
         />
       </div>
-      <button type="submit" class="w-full rounded bg-blue-500 p-2 text-white hover:bg-blue-600">
-        <span></span>
+      <button
+        type="submit"
+        class="w-full space-x-2 rounded bg-blue-500 p-2 text-white hover:bg-blue-600"
+      >
+        <span>Войти</span>
+        <BaseLoader size="sm" v-if="userStore.isLoading" />
       </button>
       <p v-if="error" class="text-center text-red-500">{{ error }}</p>
     </form>

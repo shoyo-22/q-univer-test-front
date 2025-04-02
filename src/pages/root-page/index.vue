@@ -1,6 +1,6 @@
 <template>
   <BaseContainer class="my-2">
-    <h2 class="text-2xl">Доступные курсы</h2>
+    <h2 class="mb-4 text-2xl font-bold">Доступные курсы</h2>
 
     <section class="grid grid-cols-1 gap-4 sm:grid-cols-3">
       <article
@@ -14,6 +14,13 @@
           <h3 class="text-base font-semibold">{{ course.title }}</h3>
           <p class="line-clamp-3 text-sm">{{ course.imageUrl }}</p>
         </div>
+
+        <p
+          class="rounded-b-2xl bg-green-100 p-3 text-xs font-medium text-green-700"
+          v-if="enrolledCoursesByUser?.map((obj) => obj.id).includes(course.id)"
+        >
+          Записался
+        </p>
       </article>
     </section>
   </BaseContainer>
@@ -24,6 +31,8 @@ import { api } from '@/shared/api/base';
 import { BaseContainer } from '@/shared/ui';
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useUserStore } from '@/entities/user/model/userStore';
+import { storeToRefs } from 'pinia';
 
 export type Course = {
   id: number;
@@ -35,6 +44,8 @@ export type Course = {
 const courseList = ref<Course[]>([]);
 const isLoading = ref<boolean>(false);
 const router = useRouter();
+const userStore = useUserStore();
+const { enrolledCoursesByUser } = storeToRefs(userStore);
 
 onMounted(async () => {
   try {
