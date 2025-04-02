@@ -1,3 +1,3 @@
-import LoginPage from './index.vue';
+import RegisterPage from './index.vue';
 
-export default LoginPage;
+export default RegisterPage;

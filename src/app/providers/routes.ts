@@ -19,6 +19,11 @@ const router = createRouter({
           component: () => import('@/pages/course'),
           props: true,
         },
+        {
+          path: '/profile',
+          name: 'profile-page',
+          component: () => import('@/pages/profile'),
+        },
       ],
     },
     {

@@ -13,6 +13,7 @@
         </button>
         <button
           v-else
+          @click="router.push({ path: '/profile' })"
           class="flex cursor-pointer items-center gap-1.5 rounded-lg border border-gray-300 px-3 py-1.5 text-xs font-medium text-gray-600 shadow-xs transition-all duration-300 hover:border-blue-400 hover:bg-blue-50 hover:text-blue-800 sm:px-4 sm:py-2 sm:text-sm"
         >
           <span>Личный кабинет</span>

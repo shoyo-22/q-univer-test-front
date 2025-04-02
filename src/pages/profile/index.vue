@@ -1,23 +1,15 @@
 <template>
   <BaseContainer class="my-2">
-    <h2 class="mb-4 text-2xl font-bold">Доступные курсы</h2>
+    <h2 class="mb-4 text-2xl font-bold">Мои курсы</h2>
 
     <section class="grid grid-cols-1 gap-4 sm:grid-cols-3">
       <article
-        v-for="course of courseList"
+        v-for="course of enrolledCoursesByUser"
         :key="course.id"
         @click="router.push({ name: 'course-self-page', params: { id: course.id } })"
         class="rounded-2xl border border-gray-300 shadow-md transition-all duration-300 hover:cursor-pointer hover:shadow-lg"
       >
         <img :src="course.thumbnailUrl" :alt="course.title" class="object-fit rounded-2xl" />
-
-        <span
-          class="my-2 rounded-2xl bg-green-100 px-2 py-1 text-xs font-medium text-green-700"
-          v-if="enrolledCoursesByUser?.map((obj) => obj.id).includes(course.id)"
-        >
-          Записался
-        </span>
-
         <div class="space-y-2 p-3">
           <h3 class="text-base font-semibold">{{ course.title }}</h3>
           <p class="line-clamp-3 text-sm">{{ course.imageUrl }}</p>
